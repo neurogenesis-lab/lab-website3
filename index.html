@@ -3,8 +3,63 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Neurogenesis & Neurodevelopmental Disorders Lab</title>
-  <meta name="description" content="Neurogenesis & NDDs Lab — Dr. Diego García-González">
+
+  <title>Neurogenesis &amp; Neurodevelopmental Disorders Lab | Diego García-González</title>
+  <meta name="description" content="Neurogenesis & NDDs Lab — Dr. Diego García-González. Research laboratory at IBiS-CSIC studying neurogenesis, neural stem cells, brain development, and neurodevelopmental disorders.">
+
+  <!-- Canonical (prevents duplicate indexing on www/non-www variants) -->
+  <link rel="canonical" href="https://neurogenesis-lab.org/">
+
+  <!-- Basic Open Graph (better preview on social / Slack / Teams) -->
+  <meta property="og:title" content="Neurogenesis & Neurodevelopmental Disorders Lab | Diego García-González">
+  <meta property="og:description" content="Research laboratory at IBiS-CSIC studying neurogenesis, neural stem cells, brain development, and neurodevelopmental disorders.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://neurogenesis-lab.org/">
+  <!-- Optional if you have a share image -->
+  <!-- <meta property="og:image" content="https://neurogenesis-lab.org/assets/og.jpg"> -->
+
+  <!-- Optional: Twitter/X cards (works for other platforms too) -->
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon (optional but recommended) -->
+  <!-- <link rel="icon" href="assets/favicon.ico"> -->
+
+  <!-- Structured data (FIXED JSON + closed properly) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ResearchOrganization",
+    "name": "Neurogenesis & Neurodevelopmental Disorders Laboratory",
+    "url": "https://neurogenesis-lab.org/",
+    "member": {
+      "@type": "Person",
+      "name": "Diego García-González",
+      "sameAs": [
+        "https://orcid.org/0000-0002-2500-0248",
+        "https://scholar.google.com/citations?user=a-IfTCoAAAAJ"
+      ]
+    },
+    "parentOrganization": {
+      "@type": "Organization",
+      "name": "Institute of Biomedicine of Seville (IBiS) / Spanish National Research Council (CSIC)"
+    }
+  }
+  </script>
+
+  <!-- CSP (separate tag, not inside the JSON-LD script) -->
+  <!-- Because you use an inline <script> for the year, we allow 'unsafe-inline' for scripts.
+       If you want a stricter CSP, see note below to remove the inline script entirely. -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    img-src 'self' https:;
+    style-src 'self' 'unsafe-inline';
+    script-src 'self' 'unsafe-inline';
+    connect-src 'self';
+    frame-ancestors 'none';
+    base-uri 'self';
+    form-action 'none';
+    upgrade-insecure-requests;
+  ">
 
   <style>
     body {
@@ -15,65 +70,33 @@
       line-height: 1.65;
     }
 
-    a {
-      color: #1a4fd8;
-      text-decoration: none;
-    }
+    a { color: #1a4fd8; text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    header {
-      padding: 40px 20px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
+    header { padding: 40px 20px 20px; max-width: 900px; margin: auto; }
 
-    nav {
-      font-size: 14px;
-      margin-bottom: 34px;
-    }
-    nav a {
-      margin-right: 18px;
-      color: #444;
-    }
+    nav { font-size: 14px; margin-bottom: 34px; }
+    nav a { margin-right: 18px; color: #444; }
 
-    h1 {
-      font-size: 32px;
-      font-weight: 600;
-      margin: 0 0 10px;
-      letter-spacing: -0.2px;
-    }
+    h1 { font-size: 32px; font-weight: 600; margin: 0 0 10px; letter-spacing: -0.2px; }
+    h2 { font-size: 22px; margin-top: 34px; font-weight: 700; }
 
-    h2 {
-      font-size: 22px;
-      margin-top: 34px;
-      font-weight: 700;
-    }
+    p { max-width: 1000px; font-size: 17px; margin: 10px 0; }
 
-    p {
-      max-width: 1000px;
-      font-size: 17px;
-      margin: 10px 0;
-    }
+    ul { max-width: 760px; padding-left: 20px; margin: 10px 0 0; }
 
-    ul {
-      max-width: 760px;
-      padding-left: 20px;
-      margin: 10px 0 0;
-    }
-
-    /* Intro block (photo + text) */
     .intro {
       display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 28px;
+      grid-template-columns: 100px 1fr;
+      gap: 24px;
       align-items: start;
       margin-top: 18px;
       margin-bottom: 10px;
     }
 
     .profile-pic {
-      width: 160px;
-      height: 160px;
+      width: 96px;
+      height: 96px;
       object-fit: cover;
       border-radius: 50%;
       display: block;
@@ -81,30 +104,19 @@
 
     .intro-text { max-width: 760px; }
 
-    .kicker {
-      color: #555;
-      font-size: 14px;
-      margin: 2px 0 8px;
-    }
+    .kicker { color: #555; font-size: 14px; margin: 2px 0 8px; }
 
-    .pi-name {
-      color: #444;
-      margin: 0 0 10px;
-    }
+    .pi-name { color: #444; margin: 0 0 10px; }
 
-    /* Hero image */
     .hero-image {
-      margin: 18px 0 6px;
-      max-width: 100%;
-      border-radius: 4px;
+      margin: 28px 0 10px;
+      width: 100%;
+      max-width: 900px;
+      border-radius: 6px;
       display: block;
     }
 
-    main {
-      max-width: 900px;
-      margin: auto;
-      padding: 0 20px;
-    }
+    main { max-width: 900px; margin: auto; padding: 0 20px; }
 
     footer {
       margin-top: 70px;
@@ -119,7 +131,7 @@
 
     @media (max-width: 720px) {
       .intro { grid-template-columns: 1fr; }
-      .profile-pic { width: 140px; height: 140px; }
+      .profile-pic { width: 80px; height: 80px; }
       nav a { display: inline-block; margin: 0 14px 10px 0; }
     }
   </style>
@@ -260,4 +272,3 @@
 
 </body>
 </html>
-
