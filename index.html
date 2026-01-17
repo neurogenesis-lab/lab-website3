@@ -7,24 +7,16 @@
   <title>Neurogenesis &amp; Neurodevelopmental Disorders Lab | Diego García-González</title>
   <meta name="description" content="Neurogenesis & NDDs Lab — Dr. Diego García-González. Research laboratory at IBiS-CSIC studying neurogenesis, brain development, and neurodevelopmental disorders.">
 
-  <!-- Canonical (prevents duplicate indexing on www/non-www variants) -->
   <link rel="canonical" href="https://neurogenesis-lab.org/">
 
-  <!-- Basic Open Graph (better preview on social / Slack / Teams) -->
-  <meta property="og:title" content="Neurogenesis & Neurodevelopmental Disorders Lab | Diego García-González">
-  <meta property="og:description" content="Research laboratory at IBiS-CSIC studying neurogenesis, brain development, and neurodevelopmental disorders. Evo-devo aficionado.">
+  <meta property="og:title" content="Neurogenesis &amp; Neurodevelopmental Disorders Lab | Diego García-González">
+  <meta property="og:description" content="Research laboratory at IBiS-CSIC studying neurogenesis, brain development, and neurodevelopmental disorders.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://neurogenesis-lab.org/">
-  <!-- Optional if you have a share image -->
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Optional -->
   <!-- <meta property="og:image" content="https://neurogenesis-lab.org/assets/og.jpg"> -->
 
-  <!-- Optional: Twitter/X cards (works for other platforms too) -->
-  <meta name="twitter:card" content="summary_large_image">
-
-  <!-- Favicon (optional but recommended) -->
-  <!-- <link rel="icon" href="assets/favicon.ico"> -->
-
-  <!-- Structured data (FIXED JSON + closed properly) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -46,14 +38,11 @@
   }
   </script>
 
-  <!-- CSP (separate tag, not inside the JSON-LD script) -->
-  <!-- Because you use an inline <script> for the year, we allow 'unsafe-inline' for scripts.
-       If you want a stricter CSP, see note below to remove the inline script entirely. -->
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
     img-src 'self' https:;
     style-src 'self' 'unsafe-inline';
-    script-src 'self' 'unsafe-inline';
+    script-src 'self';
     connect-src 'self';
     frame-ancestors 'none';
     base-uri 'self';
@@ -62,214 +51,352 @@
   ">
 
   <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: #ffffff;
-      color: #111;
-      line-height: 1.65;
+    :root{
+      --text:#111;
+      --muted:#555;
+      --line:#eee;
+      --link:#1a4fd8;
+      --max:800px;
     }
 
-    a { color: #1a4fd8; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    header { padding: 40px 20px 20px; max-width: 900px; margin: auto; }
-
-    nav { font-size: 14px; margin-bottom: 34px; }
-    nav a { margin-right: 18px; color: #444; }
-
-    h1 { font-size: 32px; font-weight: 600; margin: 0 0 10px; letter-spacing: -0.2px; }
-    h2 { font-size: 22px; margin-top: 34px; font-weight: 700; }
-
-    p { max-width: 1000px; font-size: 17px; margin: 10px 0; }
-
-    ul { max-width: 760px; padding-left: 45px; margin: 10px 0 0; }
-
-    .intro {
-      display: grid;
-      grid-template-columns: 100px 1fr;
-      gap: 24px;
-      align-items: start;
-      margin-top: 18px;
-      margin-bottom: 10px;
+    body{
+      margin:0;
+      font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background:#fff;
+      color:var(--text);
+      line-height:1.65;
     }
 
-    .profile-pic {
-      width: 96px;
-      height: 96px;
-      object-fit: cover;
-      border-radius: 50%;
-      display: block;
+    a{ color:var(--link); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+
+    /* FULL-BLEED HERO (first thing on the page) */
+    .hero{
+      position:relative;
+      height:68vh;
+      min-height:420px;
+      max-height:820px;
+      overflow:hidden;
+
+      width:100vw;
+      margin-left:calc(50% - 50vw);
+      margin-right:calc(50% - 50vw);
     }
 
-    .intro-text { max-width: 760px; }
-
-    .kicker { color: #555; font-size: 14px; margin: 2px 0 8px; }
-
-    .pi-name { color: #444; margin: 0 0 10px; }
-
-    .hero-image {
-      margin: 28px 0 10px;
-      width: 100%;
-      max-width: 900px;
-      border-radius: 6px;
-      display: block;
+    .hero img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transform:scale(1.05);
+      animation:heroZoom 22s ease-in-out infinite alternate;
+      display:block;
     }
 
-    main { max-width: 900px; margin: auto; padding: 0 20px; }
-
-    footer {
-      margin-top: 70px;
-      padding: 36px 20px;
-      border-top: 1px solid #eee;
-      font-size: 14px;
-      color: #555;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
+    @keyframes heroZoom{
+      from{ transform:scale(1.05); }
+      to{ transform:scale(1.12); }
     }
 
-    @media (max-width: 720px) {
-      .intro { grid-template-columns: 1fr; }
-      .profile-pic { width: 80px; height: 80px; }
-      nav a { display: inline-block; margin: 0 14px 10px 0; }
+    /* subtle overlay for legibility */
+    .hero::after{
+      content:"";
+      position:absolute; inset:0;
+      background:linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.38) 0%,
+        rgba(0,0,0,0.22) 35%,
+        rgba(0,0,0,0.05) 70%,
+        rgba(255,255,255,0.00) 100%
+      );
+      pointer-events:none;
+    }
+
+    /* title block over the hero */
+    .hero-title{
+      position:absolute;
+      left:50%;
+      transform:translateX(-50%);
+      top:clamp(28px, 6vh, 64px);
+      width:min(var(--max), calc(100% - 40px));
+      color:#fff;
+      z-index:2;
+    }
+
+    .hero-title h1{
+      margin:0 0 10px;
+      font-size:clamp(28px, 4.2vw, 48px);
+      font-weight:450;
+      letter-spacing:-0.2px;
+      line-height:1.08;
+      text-shadow:0 2px 10px rgba(0,0,0,0.35);
+    }
+
+    .hero-title .tagline{
+      margin:0;
+      max-width:800px;
+      color:rgba(255,255,255,0.90);
+      font-size:clamp(16px, 1.5vw, 16px);
+      text-shadow:0 2px 8px rgba(0,0,0,0.30);
+    }
+
+    /* NAV BAR UNDER HERO */
+    .nav-bar{
+      border-bottom:1px solid var(--line);
+      background:#fff;
+    }
+/* Sticky navigation bar */
+.nav-bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+    background: rgba(255,255,255,0.96);
+  backdrop-filter: saturate(1.05) blur(1px);
+	border-bottom: 1px solid var(--line);
+
+}
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:0 20px;
+    }
+
+    nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px 20px;
+      padding:14px 0;
+      font-size:16px;
+    }
+
+    nav a{
+      color:#333;
+      padding:6px 0;
+    }
+
+    /* MAIN CONTENT */
+    main{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:26px 20px 0;
+    }
+
+    h2{
+      font-size:24px;
+      margin-top:34px;
+      font-weight:700;
+    }
+
+    p{
+      max-width:760px;   /* elegant line length */
+      font-size:17px;
+      margin:10px 0;
+    }
+
+    ul{
+      max-width:760px;
+      padding-left:22px;
+      margin:10px 0 0;
+    }
+
+    /* INTRO BELOW HERO (brief) */
+    .intro{
+      display:grid;
+      grid-template-columns: 150px 1fr;
+      gap:12px;
+      align-items:start;
+      margin-top:6px;
+      margin-bottom:10px;
+    }
+
+    .profile-pic{
+      width:148px;
+      height:148px;
+      object-fit:cover;
+      border-radius:50%;
+      display:block;
+    }
+
+    .kicker{
+      color:var(--muted);
+      font-size:14px;
+      margin:2px 0 8px;
+    }
+
+    .pi-name{
+      color:#444;
+      margin:0 0 10px;
+    }
+
+    footer{
+      margin-top:70px;
+      padding:36px 20px;
+      border-top:1px solid var(--line);
+      font-size:14px;
+      color:var(--muted);
+      max-width:var(--max);
+      margin-left:auto;
+      margin-right:auto;
+    }
+
+    @media (max-width:720px){
+      .hero{ height:56vh; min-height:320px; }
+      .hero img{
+        animation:heroZoomMobile 26s ease-in-out infinite alternate;
+      }
+      @keyframes heroZoomMobile{
+        from{ transform:scale(1.04); }
+        to{ transform:scale(1.08); }
+      }
+
+      .intro{ grid-template-columns:1fr; }
+      .profile-pic{ width:80px; height:80px; }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <nav>
-    <a href="#research">Research</a>
-    <a href="#people">People</a>
-    <a href="#publications">Publications</a>
-    <a href="#join">Join</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <!-- HERO FIRST -->
+  <section class="hero" aria-label="Lab hero image">
+    <img src="assets/hero_v5.jpg"
+         alt="Confocal microscopy image illustrating interneuron neurogenesis in the olfactory bulb">
 
-  <h1>Neurogenesis &amp; Neurodevelopmental Disorders Laboratory</h1>
-
-  <section class="intro">
-    <img src="assets/profile2.png"
-         alt="Diego García-González, Principal Investigator"
-         class="profile-pic">
-
-    <div class="intro-text">
-      <p class="kicker">Developmental Neurogenesis • Cell Migration • Interneuron Specification • Circuit Assembly • Basal Ganglia</p>
-
-      <p class="pi-name">
-        <strong>Diego García-González, PhD</strong><br>
-        Group Leader at Institute of Biomedicine of Seville (IBiS) – Spanish National Research Council (CSIC)
+    <div class="hero-title">
+      <h1>Neurogenesis &amp; Neurodevelopmental Disorders Laboratory</h1>
+      <p class="tagline">
+        Developmental neurogenesis • Cell migration • Interneuron specification • Circuit assembly • Basal ganglia
       </p>
-
-      <p><em>We investigate the cellular and molecular mechanisms of neurogenesis during
-      development, and how their disruption contributes to brain disorders.</em></p>
     </div>
   </section>
 
-  <!-- Use a RELATIVE PATH that works on GitHub Pages -->
-  <img class="hero-image" src="assets/hero_v3.jpg" alt="Confocal microscopy image illustrating interneuron neurogenesis in the olfactoty bulb">
-</header>
+  <!-- NAV BAR UNDER HERO -->
+  <div class="nav-bar">
+    <div class="wrap">
+      <nav aria-label="Primary navigation">
+        <a href="#research">Research</a>
+        <a href="#people">People</a>
+        <a href="#publications">Publications</a>
+        <a href="#join">Join</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
 
-<main>
+  <main>
 
-<section id="research">
-  <h2>Research</h2>
+    <!-- BRIEF INTRO BELOW HERO -->
+    <section class="intro" aria-label="Principal investigator">
+      <img src="assets/profile2.png"
+           alt="Diego García-González, Principal Investigator"
+           class="profile-pic">
 
-  <p>
-    Based at the Institute of Biomedicine of Seville (IBiS), our lab is dedicated to one of the most
-    fundamental and fascinating questions in neurodevelopment: how neurogenesis generates the vast cellular
-    diversity of the central nervous system. We investigate the molecular and cellular mechanisms underlying
-    neural stem cell proliferation, differentiation, migration, and maturation—key processes that shape the
-    brain’s architecture and function.
-  </p>
+      <div>
+        <p class="pi-name">
+          <strong>Diego García-González, PhD</strong><br>
+          Group Leader at Institute of Biomedicine of Seville (IBiS) <br> 
+			Spanish National Research Council (CSIC)
+        </p>
 
-  <p>
-    We are particularly interested in understanding how subtle deviations in these processes, occurring during
-    critical developmental windows, can lead to long-lasting alterations in neural circuits. These disruptions are
-    increasingly linked to psychiatric disorders such as autism, schizophrenia, and epilepsy. By using comparative
-    neuroanatomy, single-cell transcriptomics, optogenetics, and advanced imaging techniques, we aim to uncover
-    how neural circuits are shaped in both health and disease.
-  </p>
+        <p><em>
+          We investigate the cellular and molecular mechanisms of neurogenesis during development,
+          and how their disruption contributes to brain disorders.
+        </em></p>
+      </div>
+    </section>
 
-  <p>
-    Our ultimate goal is to decipher the cellular logic of brain development, providing insights that could pave the way
-    for new therapeutic strategies for neurodevelopmental and psychiatric disorders. Through cutting-edge experimental
-    approaches and interdisciplinary collaborations, we work to unravel the complexity of the brain.
-  </p>
+    <!-- REST OF YOUR CONTENT -->
+    <section id="research">
+      <h2>Research</h2>
 
-  <p><strong>Main themes:</strong></p>
-  <ul>
-    <li>Embryonic and postnatal neurogenesis</li>
-    <li>Neural stem cell proliferation and differentiation</li>
-    <li>Neuroblast migration and circuit integration</li>
-    <li>Neurogenesis in neurodevelopmental disorders</li>
-  </ul>
-</section>
+      <p>
+        Based at the Institute of Biomedicine of Seville (IBiS), our lab is dedicated to one of the most
+        fundamental and fascinating questions in neurodevelopment: how neurogenesis generates the vast cellular
+        diversity of the central nervous system. We investigate the molecular and cellular mechanisms underlying
+        neural stem cell proliferation, differentiation, migration, and maturation—key processes that shape the
+        brain’s architecture and function.
+      </p>
 
-<section id="people">
-  <h2>People</h2>
-  <p><strong>Diego García-González</strong> — Principal Investigator</p>
+      <p>
+        We are particularly interested in understanding how subtle deviations in these processes, occurring during
+        critical developmental windows, can lead to long-lasting alterations in neural circuits. These disruptions are
+        increasingly linked to psychiatric disorders such as autism, schizophrenia, and epilepsy. By using comparative
+        neuroanatomy, single-cell transcriptomics, optogenetics, and advanced imaging techniques, we aim to uncover
+        how neural circuits are shaped in both health and disease.
+      </p>
 
-  <p>
-    Elena Navarro Villarán, PhD<br>
-    Isabel García Caldón, PhD student<br>
-    Alejandro Pérez Recio, Master student
-  </p>
-</section>
+      <p>
+        Our ultimate goal is to decipher the cellular logic of brain development, providing insights that could pave the way
+        for new therapeutic strategies for neurodevelopmental and psychiatric disorders. Through cutting-edge experimental
+        approaches and interdisciplinary collaborations, we work to unravel the complexity of the brain.
+      </p>
 
-<section id="publications">
-  <h2>Publications</h2>
-  <p>
-    A full list of publications is available on
-    <a href="https://scholar.google.com/citations?user=a-IfTCoAAAAJ&hl=es" target="_blank" rel="noreferrer">Google Scholar</a>
-    and
-    <a href="https://orcid.org/0000-0002-2500-0248" target="_blank" rel="noreferrer">ORCID</a>.
-  </p>
-</section>
+      <p><strong>Main themes:</strong></p>
+      <ul>
+        <li>Embryonic and postnatal neurogenesis</li>
+        <li>Neural stem cell proliferation and differentiation</li>
+        <li>Neuroblast migration and circuit integration</li>
+        <li>Neurogenesis in neurodevelopmental disorders</li>
+      </ul>
+    </section>
 
-<section id="join">
-  <h2>Join us</h2>
-  <p>
-    We welcome applications from motivated students and postdoctoral researchers interested in neurodevelopment and neurogenesis.
-  </p>
-  <p>
-    Please contact <strong>dgg@csic.es</strong> with a CV and a brief statement of interest.<br>
-    Additional information:
-    <a href="https://digital.csic.es/cris/ou/ou00371/" target="_blank" rel="noreferrer">CSIC</a>
-    and
-    <a href="https://www.ibis-sevilla.es/en/research/neurosciences/mechanisms-of-neuronal-maintenance/members/4778/" target="_blank" rel="noreferrer">IBiS</a>
-    websites.
-  </p>
-</section>
+    <section id="people">
+      <h2>People</h2>
+      <p><strong>Diego García-González</strong> — Principal Investigator</p>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <p>
-    Neurogenesis &amp; Neurodevelopmental Disorders Laboratory<br>
-    Lab 113 (2nd floor)<br>
-    Institute of Biomedicine of Seville (IBiS)<br>
-    Avda. Manuel Siurot, s/n<br>
-    41013 Seville, Spain
-  </p>
+      <p>
+        Elena Navarro Villarán, PhD<br>
+        Isabel García Caldón, PhD student<br>
+        Alejandro Pérez Recio, Master student
+      </p>
+    </section>
 
-  <p>
-    Follow the lab on
-    <a href="https://bsky.app/profile/diegoconcalma.bsky.social" target="_blank" rel="noreferrer">Bluesky</a>
-  </p>
-</section>
+    <section id="publications">
+      <h2>Publications</h2>
+      <p>
+        A full list of publications is available on
+        <a href="https://scholar.google.com/citations?user=a-IfTCoAAAAJ&hl=es" target="_blank" rel="noreferrer">Google Scholar</a>
+        and
+        <a href="https://orcid.org/0000-0002-2500-0248" target="_blank" rel="noreferrer">ORCID</a>.
+      </p>
+    </section>
 
-</main>
+    <section id="join">
+      <h2>Join us</h2>
+      <p>
+        We welcome applications from motivated students and postdoctoral researchers interested in neurodevelopment and neurogenesis.
+      </p>
+      <p>
+        Please contact <strong>dgg@csic.es</strong> with a CV and a brief statement of interest.<br>
+        Additional information:
+        <a href="https://www.csic.es/es/investigaci%C3%B3n/investigadoresdiego-garcia-gonzalez" target="_blank" rel="noreferrer">CSIC</a>
+        and
+        <a href="https://www.ibis-sevilla.es/en/research/neurosciences/mechanisms-of-neuronal-maintenance/members/4778/" target="_blank" rel="noreferrer">IBiS</a>
+        websites.
+      </p>
+    </section>
 
-<footer>
-  © <span id="year"></span> Neurogenesis &amp; Neurodevelopmental Disorders Lab
-</footer>
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        Neurogenesis &amp; Neurodevelopmental Disorders Laboratory<br>
+        Lab 113 (2nd floor)<br>
+        Institute of Biomedicine of Seville (IBiS)<br>
+        Avda. Manuel Siurot, s/n<br>
+        41013 Seville, Spain
+      </p>
 
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+      <p>
+        Follow the lab on
+        <a href="https://bsky.app/profile/diegoconcalma.bsky.social" target="_blank" rel="noreferrer">Bluesky</a>
+      </p>
+    </section>
 
+  </main>
+
+  <footer>
+    © <span id="year"></span> Neurogenesis &amp; Neurodevelopmental Disorders Lab
+  </footer>
+
+  <script src="assets/site.js" defer></script>
 </body>
 </html>
-
