@@ -94,13 +94,13 @@
       height:100%;
       object-fit:cover;
       transform:scale(1.05);
-      animation:heroZoom 22s ease-in-out infinite alternate;
+      animation:heroZoom 18s ease-in-out infinite alternate;
       display:block;
     }
 
     @keyframes heroZoom{
-      from{ transform:scale(1.05); }
-      to{ transform:scale(1.12); }
+      from{ transform:scale(1.06); }
+      to{ transform:scale(1.18); }
     }
 
     /* subtle overlay for legibility */
@@ -245,11 +245,11 @@
     @media (max-width:720px){
       .hero{ height:56vh; min-height:320px; }
       .hero img{
-        animation:heroZoomMobile 26s ease-in-out infinite alternate;
+        animation:heroZoomMobile 20s ease-in-out infinite alternate;
       }
       @keyframes heroZoomMobile{
-        from{ transform:scale(1.04); }
-        to{ transform:scale(1.08); }
+        from{ transform:scale(1.06); }
+        to{ transform:scale(1.16); }
       }
 
       .intro{ grid-template-columns:1fr; }
@@ -277,11 +277,11 @@
   <div class="nav-bar">
     <div class="wrap">
       <nav aria-label="Primary navigation">
-        <a href="#research">Research</a>
-        <a href="#people">People</a>
-        <a href="#publications">Publications</a>
-        <a href="#join">Join</a>
-        <a href="#contact">Contact</a>
+        <a href="#research"><strong>Research</strong></a>
+        <a href="#people"><strong>People</strong></a>
+        <a href="#publications"><strong>Publications</strong></a>
+        <a href="#join"><strong>Join</strong></a>
+        <a href="#contact"><strong>Contact</strong></a>
       </nav>
     </div>
   </div>
@@ -298,7 +298,7 @@
         <p class="pi-name">
           <strong>Diego García-González, PhD</strong><br>
           Group Leader<br>
-			Institute of Biomedicine of Seville (IBiS) /
+			Institute of Biomedicine of Seville (IBiS) -
 			Spanish National Research Council (CSIC)
         </p>
 
