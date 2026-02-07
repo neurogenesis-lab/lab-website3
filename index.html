@@ -165,17 +165,53 @@
     }
 
     nav{
-      display:flex;
-      flex-wrap:wrap;
-      gap:14px 20px;
-      padding:14px 0;
-      font-size:16px;
-    }
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px 20px;
+  padding:14px 0;
+  font-size:16px;
+}
 
-    nav a{
-      color:#333;
-      padding:6px 0;
-    }
+nav a{
+  color:#333;
+  padding:6px 0;
+}
+
+/* NEW: logo + nav layout */
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+}
+
+.nav-brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#111;
+  font-weight:600;
+  white-space:nowrap;
+}
+
+.nav-logo{
+  width:22px;
+  height:22px;
+  object-fit:contain;
+  display:block;
+}
+
+.nav-labname{
+  font-size:15px;
+  letter-spacing:-0.1px;
+}
+
+.nav-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px 20px;
+}
+
 
     /* MAIN CONTENT */
     main{
@@ -259,7 +295,7 @@
 </head>
 
 <body>
-
+<div id="top"></div>
   <!-- HERO FIRST -->
   <section class="hero" aria-label="Lab hero image">
     <img src="assets/hero_v6.png"
@@ -274,17 +310,20 @@
   </section>
 	
   <!-- NAV BAR UNDER HERO -->
-  <div class="nav-bar">
-    <div class="wrap">
-      <nav aria-label="Primary navigation">
-        <a href="#research"><strong>Research</strong></a>
-        <a href="#people"><strong>People</strong></a>
-        <a href="#publications"><strong>Publications</strong></a>
-        <a href="#join"><strong>Join</strong></a>
-        <a href="#contact"><strong>Contact</strong></a>
-      </nav>
-    </div>
+ <nav aria-label="Primary navigation" class="nav">
+  <a class="nav-brand" href="#top" aria-label="Home">
+    <img src="assets/logo.png" alt="Neurogenesis Lab logo" class="nav-logo">
+    <span class="nav-labname">Neurogenesis Lab</span>
+  </a>
+
+  <div class="nav-links">
+    <a href="#research">Research</a>
+    <a href="#people">People</a>
+    <a href="#publications">Publications</a>
+    <a href="#join">Join</a>
+    <a href="#contact">Contact</a>
   </div>
+</nav>
 
   <main>
 
@@ -374,7 +413,7 @@
       <p>
         Please contact <strong>dgg@csic.es</strong> with a CV and a brief statement of interest.<br>
         Additional information:
-        <a href="https://digital.csic.es/cris/ou/ou00371" target="_blank" rel="noreferrer">CSIC</a>
+        <a href="https://www.csic.es/es/investigaci%C3%B3n/investigadoresdiego-garcia-gonzalez" target="_blank" rel="noreferrer">CSIC</a>
         and
         <a href="https://www.ibis-sevilla.es/en/research/neurosciences/mechanisms-of-neuronal-maintenance/members/4778/" target="_blank" rel="noreferrer">IBiS</a>
         websites.
@@ -407,5 +446,3 @@
   <script src="assets/site.js" defer></script>
 </body>
 </html>
-
-
