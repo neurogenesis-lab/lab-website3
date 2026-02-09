@@ -167,17 +167,26 @@ section[id]{
     }
 
     nav{
-      display:flex;
-      flex-wrap:wrap;
-      gap:14px 20px;
-      padding:14px 0;
-      font-size:16px;
-    }
+  display:flex;
+  gap:18px;
+  padding:14px 0;
+  font-size:16px;
+  overflow-x:auto;
+  white-space:nowrap;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none; /* Firefox hide scrollbar */
+}
 
-    nav a{
-      color:#333;
-      padding:6px 0;
-    }
+nav::-webkit-scrollbar{
+  display:none; /* Chrome/Safari hide scrollbar */
+}
+
+nav a{
+  flex:0 0 auto;
+  color:#333;
+  padding:6px 0;
+}
+
 
     /* MAIN CONTENT */
     main{
@@ -412,4 +421,5 @@ section[id]{
   <script src="assets/site.js" defer></script>
 </body>
 </html>
+
 
